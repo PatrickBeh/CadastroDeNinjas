@@ -1,5 +1,5 @@
-package com.patrickbehenck.CadastroDeNinjas;
-
+package com.patrickbehenck.CadastroDeNinjas.Ninjas;
+import com.patrickbehenck.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 // Entity transforms a common class into a database entity
@@ -12,6 +12,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // @ManyToOne - Um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
