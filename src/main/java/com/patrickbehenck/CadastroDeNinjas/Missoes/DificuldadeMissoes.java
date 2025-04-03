@@ -6,8 +6,4 @@ public enum DificuldadeMissoes {
     RANK_B,
     RANK_A,
     RANK_S;
-
-    private DificuldadeMissoes() {
-
-    }
 }

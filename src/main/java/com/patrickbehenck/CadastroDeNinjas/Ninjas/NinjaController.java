@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class NinjaController {
-    @GetMapping("/boasvindas")
+    @GetMapping("/boas-vindas")
     public String boasVindas() {
         return "This is my first message in this route!";
     }
