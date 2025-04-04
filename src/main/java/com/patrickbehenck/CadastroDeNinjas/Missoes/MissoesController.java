@@ -2,7 +2,7 @@ package com.patrickbehenck.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("missoes")
+@RequestMapping("/missoes")
 public class MissoesController {
     // GET -- Send a request to show Missions
     @GetMapping("/list")
