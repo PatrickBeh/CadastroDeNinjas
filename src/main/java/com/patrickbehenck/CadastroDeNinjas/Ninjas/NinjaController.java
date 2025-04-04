@@ -36,6 +36,12 @@ public class NinjaController {
     public Optional<NinjaModel> showNinjaById(@PathVariable Long id) {
         return ninjaService.showNinjaById(id);
     }
+    /* Second Option to write showNinjaById
+    * @GetMapping("/showNinja/{id}")
+    * public NinjaModel showNinjaById(@PathVariable Long id) {
+    *   return ninjaService.showNinjaById(id);
+    * }
+    * */
 
     // Alter Ninja data (Update)
     @PutMapping("/updateID")

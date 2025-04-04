@@ -22,4 +22,10 @@ public class NinjaService {
     public Optional<NinjaModel> showNinjaById(Long id) {
         return ninjaRepository.findById(id);
     }
+    /*    A Second option to write showNinjaById
+     * public NinjaModel showNinjaById(Long id) {
+     *  Optional<NinjaModel> ninjaById = ninjaRepository.findById(id);
+     *  return ninjaById.orElse(null);
+     *}
+     * */
 }
