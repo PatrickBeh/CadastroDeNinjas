@@ -38,4 +38,14 @@ public class NinjaService {
     public void deleteNinjaById(Long id) {
         ninjaRepository.deleteById(id);
     }
+
+    // Update ninja
+    public NinjaModel updateNinja(Long id, NinjaModel updatedNinja) {
+        if (ninjaRepository.existsById(id)) {
+            updatedNinja.setId(id);
+            return  ninjaRepository.save(updatedNinja);
+        }
+
+        return null;
+    }
 }
