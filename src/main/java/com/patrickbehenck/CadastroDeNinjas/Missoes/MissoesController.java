@@ -2,6 +2,7 @@ package com.patrickbehenck.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/missions")
@@ -17,10 +18,15 @@ public class MissoesController {
     public List<MissoesModel> showAllMissions() {
         return missoesService.showAllMissions();
     }
+
+    @GetMapping("/MissionById/{id}")
+    public Optional<MissoesModel> missionById(@PathVariable Long id) {
+        return missoesService.showMissionById(id);
+    }
     // POST -- Send a request to create Missions
     @PostMapping("/create")
-    public String createMission() {
-        return "Mission Created Successfully";
+    public MissoesModel createMission(@RequestBody MissoesModel mission) {
+        return missoesService.createMission(mission);
     }
     // PUT -- Send a request to update Missions
     @PutMapping("/update")
@@ -28,10 +34,11 @@ public class MissoesController {
         return "Mission Updated Successfully";
     }
     // DELETE -- Send a request to delete Missions
-    @DeleteMapping("/delete")
-    public String deleteMission() {
-        return "Mission Deleted Successfully";
+    @DeleteMapping("/delete/{id}")
+    public void deleteMission(@PathVariable Long id) {
+        missoesService.deleteMissionById(id);
     }
+
 
 
 }
