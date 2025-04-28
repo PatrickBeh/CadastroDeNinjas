@@ -20,14 +20,13 @@ public class NinjaModel {
     @Column(name = "img_url")
     private String imgUrl;
 
+    @Column(name = "idade")
     private int idade;
 
-    // @ManyToOne - Um ninja tem uma unica missao
-    @ManyToOne
-    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
-    private MissoesModel missoes;
+    @Column(name = "rank")
+    private String rank;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 }
