@@ -18,34 +18,30 @@ public class NinjaController {
         return "This is my first message in this route!";
     }
 
-// CRUD
-    // Add Ninja (Create)
     @PostMapping("/create")
     public NinjaDTO createNinja(@RequestBody NinjaDTO ninja) {
         return ninjaService.createNinja(ninja);
     }
 
-    // Show All Ninjas (Read)
     @GetMapping("/showAllNinja")
-    public List<NinjaModel> showAllNinja() {
+    public List<NinjaDTO> showAllNinja() {
         return ninjaService.showAllNinja();
     }
 
     // Show Ninja by ID (Read)
+//    @GetMapping("/showNinja/{id}")
+//    public Optional<NinjaModel> showNinjaById(@PathVariable Long id) {
+//        return ninjaService.showNinjaById(id);
+//    }
+    // Second Option to write showNinjaById
     @GetMapping("/showNinja/{id}")
-    public Optional<NinjaModel> showNinjaById(@PathVariable Long id) {
+    public NinjaDTO showNinjaById(@PathVariable Long id) {
         return ninjaService.showNinjaById(id);
     }
-    /* Second Option to write showNinjaById
-    * @GetMapping("/showNinja/{id}")
-    * public NinjaModel showNinjaById(@PathVariable Long id) {
-    *   return ninjaService.showNinjaById(id);
-    * }
-    * */
 
     // Alter Ninja data (Update)
     @PutMapping("/update/{id}")
-    public NinjaModel updateNinjaById(@PathVariable Long id, @RequestBody NinjaModel updatedNinja) {
+    public NinjaDTO updateNinjaById(@PathVariable Long id, @RequestBody NinjaDTO updatedNinja) {
         return ninjaService.updateNinja(id, updatedNinja);
     }
 
